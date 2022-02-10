@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="tailwind.css">
+
+</head>
+
+<body>
+    <div class="container px-4 mx-auto max-w-lg">
+        <div class="flex flex-wrap -mx-4">
+            <div class="w-full px-4 tabs">
+                <div
+                    class=" check w-1/3 text-gray-700 border border-gray-200 rounded py-3 px-4  focus:border-default-color cursor-pointer">
+                    <input class="mt-1.5 mr-2" id="Male" type="checkbox" name="GenderAllowed" value="Male">
+                    <label  class="cursor-pointer">Male</label>
+                </div>
+                <div
+                    class=" check w-1/3 text-gray-700 border border-gray-200 rounded py-3 px-4  focus:border-default-color cursor-pointer">
+                    <input class="mt-1.5 mr-2" id="Female" type="checkbox" name="GenderAllowed" value="Female">
+                    <label  class="cursor-pointer">Female</label>
+                </div>
+                <div
+                    class=" check w-1/3 text-gray-700 border border-gray-200 rounded py-3 px-4  focus:border-default-color cursor-pointer">
+                    <input class="mt-1.5 mr-2" id="Other" type="checkbox" name="GenderAllowed" value="Other">
+                    <label  class="cursor-pointer">Other</label>
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+            let check = document.querySelectorAll(".check");
+            check.forEach(function (element) {
+                element.addEventListener("click", function () {
+                    if (element.checked == false) {
+                        element.checked = true;
+                        element.firstElementChild.checked = true;
+                        element.firstElementChild.addEventListener("click", function () {
+                            element.firstElementChild.checked = true;
+                        })
+                    } else {
+                        element.checked = false;
+                        element.firstElementChild.checked = false;
+                        element.firstElementChild.addEventListener("click", function () {
+                            element.firstElementChild.checked = false;
+                        })
+                    }
+
+                })
+            })
+        </script>
+</body>
+
+</html>

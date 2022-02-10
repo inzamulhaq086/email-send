@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="tailwind.css">
+
+</head>
+
+<body>
+    <div class="container px-4 mx-auto max-w-lg">
+        <div class="flex flex-wrap -mx-4">
+            <div class="w-full px-4 tabs">
+                <div class="container">
+                    <input placeholder="Search" id="search-users" class="search-users" type="text" autofocus>
+                    <div class="users-container">
+                        <div class="user">
+                            <span class="user-data"><small class="user-id">1</small>
+                        </div>
+                        <div class="">
+                            <select
+                                class="user px-4 py-3 w-full appearance-none focus:outline-none focus:border-default-color cursor-pointer border border-gray-200"
+                                name="ToSend" multiple>
+                                <option class="user-data">hdfhhhfd</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var searchUsers = document.querySelector('#search-users'),
+                users = document.querySelectorAll('.user'),
+                usersData = document.querySelectorAll('.user-data'),
+                searchVal;
+
+            searchUsers.addEventListener('keydown', function () {
+                searchVal = this.value.toLowerCase();
+
+                for (var i = 0; i < users.length; i++) {
+                    if (!searchVal || usersData[i].innerText.toLowerCase().indexOf(searchVal) > -1) {
+                        users[i].style['display'] = 'flex';
+                    }
+                    else {
+                        users[i].style['display'] = 'none';
+                    }
+                }
+            });
+        </script>
+</body>
+
+</html>
